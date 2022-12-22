@@ -1,11 +1,19 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle, css } from 'styled-components';
 import reset from 'styled-reset';
 
+const globalStyle = css`
+	${reset}
+
+	* {
+		box-sizing: border-box;
+	}
+	body {
+		font-family: Noto sans, Noto Sans KR;
+	}
+`;
+
 const GlobalStyle = createGlobalStyle`
-    ${reset}
-    * {
-        box-sizing: border-box;
-    }
+    ${globalStyle}
 `;
 
 export default GlobalStyle;
