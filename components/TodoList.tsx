@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import styled from 'styled-components';
 import palette from '../styles/palette';
 import { TodoType } from '../types/todo';
@@ -24,6 +24,23 @@ interface IProps {
 }
 
 const TodoList: React.FC<IProps> = ({ todos }) => {
+	type ObjectIndexType = {
+		[key: string]: number | undefined;
+	};
+
+	const todoColorNums = useMemo(() => {
+		const colors: ObjectIndexType = {};
+		todos.forEach((todo) => {
+			const value = colors[todo.color];
+			if (!value) {
+				colors[`${todo.color}`] = 1;
+			} else {
+				colors[`${todo.color}`] = value + 1;
+			}
+		});
+		return colors;
+	}, [todos]);
+
 	return (
 		<Container>
 			<div className="todo-list-header">
