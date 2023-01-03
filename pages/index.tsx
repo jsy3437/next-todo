@@ -1,7 +1,8 @@
 import React from 'react';
-import { NextPage } from 'next';
+import { GetServerSideProps, NextPage } from 'next';
 import TodoList from '../components/TodoList';
 import { TodoType } from '../types/todo';
+import { getTodosAPI } from '../lib/api/todo';
 
 const todos: TodoType[] = [
 	{ id: 1, text: '마트가서 장보기', color: 'red', checked: false },
@@ -12,8 +13,19 @@ const todos: TodoType[] = [
 	{ id: 6, text: '분리수거 하기', color: 'navy', checked: false },
 ];
 
-const index: NextPage = () => {
+const app: NextPage = () => {
 	return <TodoList todos={todos} />;
 };
 
-export default index;
+export const getServerSideProps: GetServerSideProps = async () => {
+	try {
+		const { data } = await getTodosAPI();
+		console.log(data);
+		return { props: {} };
+	} catch (e) {
+		console.log(e);
+		return { props: {} };
+	}
+};
+
+export default app;
