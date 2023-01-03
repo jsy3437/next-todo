@@ -4,6 +4,7 @@ import palette from '../styles/palette';
 import { TodoType } from '../types/todo';
 import TrashCanIcon from '../public/statics/svg/trash_can.svg';
 import CheckMarkIcon from '../public/statics/svg/check_mark.svg';
+import { checkTodoAPI } from '../lib/api/todo';
 
 const Container = styled.div`
 	width: 100%;
@@ -126,6 +127,14 @@ interface IProps {
 	todos: TodoType[];
 }
 
+const checkTodo = async (id: number) => {
+	try {
+		await checkTodoAPI(id);
+	} catch (e) {
+		console.log(e);
+	}
+};
+
 const TodoList: React.FC<IProps> = ({ todos }) => {
 	type ObjectIndexType = {
 		[key: string]: number | undefined;
@@ -178,7 +187,9 @@ const TodoList: React.FC<IProps> = ({ todos }) => {
 									<TrashCanIcon className="todo-trash-can" onClick={() => {}} />
 									<CheckMarkIcon
 										className="todo-check-mark"
-										onClick={() => {}}
+										onClick={() => {
+											checkTodo(todo.id);
+										}}
 									/>
 								</>
 							)}
@@ -186,7 +197,9 @@ const TodoList: React.FC<IProps> = ({ todos }) => {
 								<button
 									type="button"
 									className="todo-button"
-									onClick={() => {}}
+									onClick={() => {
+										checkTodo(todo.id);
+									}}
 								></button>
 							)}
 						</div>
