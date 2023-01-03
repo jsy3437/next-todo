@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { TodoType } from '../../types/todo';
+import { TodoType } from '../../../types/todo';
 import fs from 'fs';
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
