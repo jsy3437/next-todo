@@ -127,17 +127,17 @@ interface IProps {
 	todos: TodoType[];
 }
 
-const checkTodo = async (id: number) => {
-	try {
-		await checkTodoAPI(id);
-	} catch (e) {
-		console.log(e);
-	}
-};
-
 const TodoList: React.FC<IProps> = ({ todos }) => {
 	type ObjectIndexType = {
 		[key: string]: number | undefined;
+	};
+
+	const checkTodo = async (id: number) => {
+		try {
+			await checkTodoAPI(id);
+		} catch (e) {
+			console.log(e);
+		}
 	};
 
 	const todoColorNums = useMemo(() => {
