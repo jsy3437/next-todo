@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import BrushIcon from '../public/statics/svg/brush.svg';
 import palette from '../styles/palette';
@@ -64,9 +64,23 @@ const Container = styled.div`
 	.bg-yellow {
 		background-color: ${palette.yellow};
 	}
+
+	textarea {
+		width: 100%;
+		border-radius: 5px;
+		height: 300px;
+		border-color: ${palette.gray};
+		margin-top: 12px;
+		resize: none;
+		outline: none;
+		padding: 12px;
+		font-size: 16px;
+	}
 `;
 
 const AddTodo: React.FC = () => {
+	const [text, setText] = useState('');
+
 	return (
 		<Container>
 			<div className="add-todo-header">
@@ -94,6 +108,11 @@ const AddTodo: React.FC = () => {
 				</div>
 				<BrushIcon />
 			</div>
+			<textarea
+				value={text}
+				onChange={(e) => setText(e.currentTarget.value)}
+				placeholder="할 일을 입력해주세요."
+			/>
 		</Container>
 	);
 };
