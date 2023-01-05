@@ -170,7 +170,7 @@ const TodoList: React.FC<IProps> = ({ todos }) => {
 			}
 		});
 		return colors;
-	}, [todos]);
+	}, [localTodos]);
 
 	return (
 		<Container>
