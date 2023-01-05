@@ -31,6 +31,7 @@ const Container = styled.div`
 
 const Footer: React.FC = () => {
 	const router = useRouter();
+	const isMain = router.pathname === '/';
 
 	return (
 		<Container>
@@ -39,7 +40,7 @@ const Footer: React.FC = () => {
 				className="footer-button"
 				onClick={() => router.push('/todo/add')}
 			>
-				+
+				{isMain ? '+' : '-'}
 			</button>
 		</Container>
 	);
