@@ -8,17 +8,18 @@ const Container = styled.div`
 	height: 53px;
 	position: fixed;
 	bottom: 0;
-	border-top: 1px solid ${palette.gray};
+	border-top: 2px solid ${palette.gray};
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	background-color: white;
 	.footer-button {
 		font-size: 32px;
+		font-weight: 600;
 		width: 32px;
 		height: 32px;
 		border-radius: 5px;
-		border: 1px solid black;
+		border: 2px solid black;
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -26,7 +27,6 @@ const Container = styled.div`
 		padding: 0;
 		line-height: 0;
 		outline: none;
-		cursor: pointer;
 	}
 `;
 
