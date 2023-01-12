@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import React from 'react';
 import styled from 'styled-components';
 import palette from '../styles/palette';
@@ -14,9 +15,17 @@ const Container = styled.div`
 	}
 `;
 const Header: React.FC = () => {
+	const router = useRouter();
+
 	return (
 		<Container>
-			<h1>Uni's TodoList</h1>
+			<h1
+				onClick={() => {
+					router.push('/');
+				}}
+			>
+				Uni's TodoList
+			</h1>
 		</Container>
 	);
 };
