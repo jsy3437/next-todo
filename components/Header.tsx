@@ -9,9 +9,11 @@ const Container = styled.div`
 	width: 100%;
 	height: 52px;
 	padding: 0 12px;
-	border-bottom: 1px solid ${palette.gray};
+	border-bottom: 3px double ${palette.gray};
 	h1 {
 		font-size: 21px;
+		font-weight: 600;
+		cursor: pointer;
 	}
 `;
 const Header: React.FC = () => {
