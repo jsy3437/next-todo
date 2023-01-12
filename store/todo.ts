@@ -1,3 +1,4 @@
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { TodoType } from '../types/todo';
 
 // 액션타입 정의
@@ -11,24 +12,26 @@ export const setTodo = (payload: TodoType[]) => {
 	};
 };
 
-export const todoActions = { setTodo };
-
 interface TodoReduxState {
 	todos: TodoType[];
 }
 
-// 초기 상태
 const initialState: TodoReduxState = {
 	todos: [],
 };
 
-// 리듀서
-export default function reducer(state = initialState, action: any) {
-	switch (action.type) {
-		case INIT_TODO_LIST:
-			const newState = { ...state, todos: action.payload };
-			return newState;
-		default:
-			return state;
-	}
-}
+// createSlice는 reducer를 생성하던 기존 방식에 액션타입을 자동으로 설정하고
+// 상태관리를 위해 불변성 유지를 위해 복잡해지는 코드를 간결하게 작성할 수 있도록 도와주는 등의 편의 기능이 제공된다.(redux-toolkit)
+const todo = createSlice({
+	name: 'todo',
+	initialState,
+	reducers: {
+		setTodo(state, action: PayloadAction<TodoType[]>) {
+			state.todos = action.payload;
+		},
+	},
+});
+
+export const todoActions = { ...todo.actions };
+
+export default todo;
