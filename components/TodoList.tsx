@@ -103,16 +103,19 @@ const Container = styled.div`
 				}
 
 				.todo-trash-can {
+					cursor: pointer;
 					path {
 						fill: ${palette.deep_red};
 					}
 				}
 
 				.todo-check-mark {
+					cursor: pointer;
 					fill: ${palette.deep_green};
 				}
 
 				.todo-button {
+					cursor: pointer;
 					width: 20px;
 					height: 20px;
 					border-radius: 50%;
