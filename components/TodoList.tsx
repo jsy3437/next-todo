@@ -1,9 +1,7 @@
 import React, { useMemo, useState } from 'react';
-import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import palette from '../styles/palette';
-import { TodoType } from '../types/todo';
-import { RootState } from '../store';
+import { useSelector } from '../store';
 import TrashCanIcon from '../public/statics/svg/trash_can.svg';
 import CheckMarkIcon from '../public/statics/svg/check_mark.svg';
 import { checkTodoAPI, deleteTodoAPI } from '../lib/api/todo';
@@ -125,16 +123,12 @@ const Container = styled.div`
 	}
 `;
 
-interface IProps {
-	todos: TodoType[];
-}
-
 type ObjectIndexType = {
 	[key: string]: number | undefined;
 };
 
 const TodoList: React.FC = () => {
-	const todos = useSelector((state: RootState) => state.todo.todos);
+	const todos = useSelector((state) => state.todo.todos);
 	const [localTodos, setLocalTodos] = useState(todos);
 
 	const checkTodo = async (id: number) => {
