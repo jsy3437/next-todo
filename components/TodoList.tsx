@@ -1,10 +1,12 @@
 import React, { useMemo, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import palette from '../styles/palette';
 import { useSelector } from '../store';
 import TrashCanIcon from '../public/statics/svg/trash_can.svg';
 import CheckMarkIcon from '../public/statics/svg/check_mark.svg';
 import { checkTodoAPI, deleteTodoAPI } from '../lib/api/todo';
+import { todoActions } from '../store/todo';
 
 const Container = styled.div`
 	width: 100%;
@@ -129,17 +131,19 @@ type ObjectIndexType = {
 
 const TodoList: React.FC = () => {
 	const todos = useSelector((state) => state.todo.todos);
+	const dispatch = useDispatch();
 	const [localTodos, setLocalTodos] = useState(todos);
 
 	const checkTodo = async (id: number) => {
 		try {
 			await checkTodoAPI(id);
-			const newTodos = localTodos.map((todo) => {
+			const newTodos = todos.map((todo) => {
 				if (todo.id === id) {
 					return { ...todo, checked: !todo.checked };
 				}
 				return todo;
 			});
+			dispatch(todoActions.setTodo(newTodos));
 			setLocalTodos(newTodos);
 		} catch (e) {
 			console.log(e);
