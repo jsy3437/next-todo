@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo } from 'react';
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import palette from '../styles/palette';
@@ -132,7 +132,6 @@ type ObjectIndexType = {
 const TodoList: React.FC = () => {
 	const todos = useSelector((state) => state.todo.todos);
 	const dispatch = useDispatch();
-	const [localTodos, setLocalTodos] = useState(todos);
 
 	const checkTodo = async (id: number) => {
 		try {
@@ -144,7 +143,6 @@ const TodoList: React.FC = () => {
 				return todo;
 			});
 			dispatch(todoActions.setTodo(newTodos));
-			setLocalTodos(newTodos);
 		} catch (e) {
 			console.log(e);
 		}
@@ -153,8 +151,8 @@ const TodoList: React.FC = () => {
 	const deleteTodo = async (id: number) => {
 		try {
 			await deleteTodoAPI(id);
-			const newTodos = localTodos.filter((todo) => todo.id !== id);
-			setLocalTodos(newTodos);
+			const newTodos = todos.filter((todo) => todo.id !== id);
+			dispatch(todoActions.setTodo(newTodos));
 		} catch (e) {
 			console.log(e);
 		}
@@ -162,7 +160,7 @@ const TodoList: React.FC = () => {
 
 	const todoColorNums = useMemo(() => {
 		const colors: ObjectIndexType = {};
-		localTodos.forEach((todo) => {
+		todos.forEach((todo) => {
 			const value = colors[todo.color];
 			if (!value) {
 				colors[`${todo.color}`] = 1;
@@ -171,13 +169,13 @@ const TodoList: React.FC = () => {
 			}
 		});
 		return colors;
-	}, [localTodos]);
+	}, [todos]);
 
 	return (
 		<Container>
 			<div className="todo-list-header">
 				<p className="todo-list-last-todo">
-					남은 TODO<span>{localTodos.length}개</span>
+					남은 TODO<span>{todos.length}개</span>
 				</p>
 				<div className="todo-list-header-colors">
 					{Object.keys(todoColorNums).map((color, index) => (
@@ -189,7 +187,7 @@ const TodoList: React.FC = () => {
 				</div>
 			</div>
 			<ul className="todo-list">
-				{localTodos.map((todo) => (
+				{todos.map((todo) => (
 					<li className="todo-item" key={todo.id}>
 						<div className="todo-left-side">
 							<div className={`todo-color-block bg-${todo.color}`}></div>
