@@ -1,35 +1,36 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+#  Uni's Todolist
+> 색상별로 일정을 관리할 수 있는 앱
 
-## Getting Started
+<img src="https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=Next.js&logoColor=white"/> <img src="https://img.shields.io/badge/Typescript-3178C6?style=flat-square&logo=Typescript&logoColor=white"/>
+<img src="https://img.shields.io/badge/React-00ADD8?style=flat-square&logo=React&logoColor=white"/><br/>
+<img src="https://img.shields.io/badge/Redux-764ABC?style=flat-square&logo=Redux&logoColor=white"/> <img src="https://img.shields.io/badge/Redux Toolkit-764ABC?style=flat-square&logo=Redux&logoColor=white"/><br/><img src="https://img.shields.io/badge/styled components-DB7093?style=flat-square&logo=styled-components&logoColor=white"/>
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+---
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## 구현목록
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-## Learn More
+> 메인 페이지
 
-To learn more about Next.js, take a look at the following resources:
+- todo 아이템 총 갯수 뷰어
+- 색상별 todo 아이템 갯수 뷰어
+- 색상별 일정 내용 뷰어
+- 완료한 일정 체크, 삭제 기능
+- todo 아이템 추가 페이지로 이동하는 버튼
+<img src="https://i.ibb.co/5nssM4j/next-todolist.png" alt="next-todolist" border="0" width='300' />
+<br/>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+> todo 추가 페이지
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- 색상버튼 클릭시 색상 선택됨
+- 일정 입력 박스
+- 일정 추가 버튼 클릭시 json파일에 데이터 저장
+- todo 아이템 추가 페이지 버튼 비활성화
+- header 클릭시 메인페이지로 이동
+<img src="https://i.ibb.co/xmVg9cy/todo-item-add.png" alt="todo-item-add" border="0" width='300' />
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-# next-todo
+<p align='right'>참조 : 클론코딩으로 시작하는 Next.js<p/>
