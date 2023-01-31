@@ -4,6 +4,8 @@ import { readFileSync, writeFileSync } from 'fs';
 const getList = () => {
 	const todosBuffer = readFileSync('data/todos.json');
 	const todosString = todosBuffer.toString();
+	console.log(__dirname);
+	console.log(__filename);
 	if (!todosString) {
 		return [];
 	}
