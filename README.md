@@ -4,7 +4,28 @@
 <img src="https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=Next.js&logoColor=white"/> <img src="https://img.shields.io/badge/Typescript-3178C6?style=flat-square&logo=Typescript&logoColor=white"/>
 <img src="https://img.shields.io/badge/React-00ADD8?style=flat-square&logo=React&logoColor=white"/><br/>
 <img src="https://img.shields.io/badge/Redux-764ABC?style=flat-square&logo=Redux&logoColor=white"/> <img src="https://img.shields.io/badge/Redux Toolkit-764ABC?style=flat-square&logo=Redux&logoColor=white"/><br/><img src="https://img.shields.io/badge/styled components-DB7093?style=flat-square&logo=styled-components&logoColor=white"/>
+___
 
+##  설치
+다음은 앱 설치 및 설정, 실행하는 방법의 예시 입니다.
+
+
+  1.  저장소 복제
+  ```javascript
+    git clone https://github.com/jsy3437/next-todo.git
+  ```
+  2.  npm 이나 yarn로 패키지 설치
+  ```javascript
+    npm install
+    또는
+    yarn add
+  ```
+  4.  .env를 추가
+  ```javascript
+    .env
+    
+    NEXT_PUBLIC_API_URL=http://localhost:3000
+  ```
 
 
 
